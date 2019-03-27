@@ -1,0 +1,26 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+<div class="center-on-page">
+<h1>Current Weather in a City</h1>
+
+<form class="form-inline" method="POST" action="{{ url_for('result') }}">
+   <div class="select">
+    <select name="selector" class="selectpicker form-control">
+    {% for name in data %}
+     <option value="{{ name }}">{{ name }}</option>
+    {% endfor %}
+    </select>
+   </div>
+    <button type="submit" class="btn">Go</button>
+</form>
+<br>
+<h1>Search Weather by Area</h1>
+<form method="POST" action="{{ url_for('tablelist') }}">
+  <label>Min Longitude: </label><input type="number" name="lonleft" value="" placeholder="Input Lon Left (-180 to 180)"><br>
+  <label>Max Longitude: </label><input type="number" name="lonright" value="" placeholder="Input Lon Right (-180 to 180)"><br>
+  <label>Min Latitude:  </label><input type="number" name="latbottom" value="" placeholder="Input Lat Bottom (-180 to 180)"><br>
+  <label>Max Latitude:  </label><input type="number" name="lattop" value="" placeholder="Input Lat Top (-180 to 180)"><br>
+  <label>Zoom Value:    </label><input type="number" name="zoom" value="" placeholder="Input Zoom"><br>
+  <button type="submit" class="btn">See The List</button>
+</form>

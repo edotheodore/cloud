@@ -1,0 +1,12 @@
+pip
+Flask
+requests
+cassandra-driver --install-option="--no-cython"
+dse
+click
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+pytz
+Werkzeug

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="center-on-top">
+	<header>
+		<nav>
+			<button class="btn" onclick="window.location.href = '{{ url_for('index') }}';">Home</button>
+        </nav>
+    </header>
+</div>
+
+<head>
+    <meta charset="utf-8">
+    <title>HELLO</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <h2>City List Based on Area</h2>
+    <p>
+        <li>Longitude Range = {{params[0]}} to {{params[2]}}</p>
+    </li>
+    <p>
+        <li>Latitude Range = {{params[1]}} to {{params[3]}}</p>
+    </li>
+    <p>
+        <li>Zoom Value = {{params[4]}}</p>
+    </li>
+    <p>
+        <li>Count Total = {{data.cnt}}</p>
+    </li>
+    <table>
+        <tr>
+            <th>CityName</th>
+            <th>CurrentTemp(°C)</th>
+        </tr>
+        {% for d in data.list %}
+        
+        <tr>
+            <td><a href="{{ url_for('result1', cityname=d.name) }}">{{ d.name }}</a></td>
+            <td>{{ d['main']['temp']|round|int}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
